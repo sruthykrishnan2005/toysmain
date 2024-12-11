@@ -11,6 +11,7 @@ urlpatterns = [
     path('addproduct', views.addproduct),
     path('delete_product/<pid>',views.delete_product),
     path('view_bookings',views.view_bookings),
+    path('contact/', views.contact),
 
     
     #------------user--------------#

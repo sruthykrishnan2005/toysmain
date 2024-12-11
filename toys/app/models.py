@@ -18,3 +18,8 @@ class Buy(models.Model):
     qty=models.IntegerField()
     price=models.IntegerField()
     date=models.DateField(auto_now_add=True)
+    
+class Contact(models.Model):
+    name = models.TextField()
+    phone_number = models.TextField() 
+    email = models.EmailField()
