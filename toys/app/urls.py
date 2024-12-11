@@ -8,6 +8,10 @@ urlpatterns = [
     #------------admin------------#
     path('shop_home',views.shop_home),
     path('logout',views.shop_logout),
+    path('addproduct', views.addproduct),
+    path('delete_product/<pid>',views.delete_product),
+    path('view_bookings',views.view_bookings),
+
     
     #------------user--------------#
     path('register',views.register),

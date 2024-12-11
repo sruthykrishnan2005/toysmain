@@ -69,3 +69,37 @@ def user_home(req):
         return render(req,'user/home.html',{'products':data})
     else:
         return redirect(shop_login)
+    
+
+def addproduct(req):
+    if 'shop' in req.session:
+        if req.method=='POST':
+            pid=req.POST['pid']
+            name=req.POST['name']
+            descrip=req.POST['descrip']
+            price=req.POST['price']
+            off_price=req.POST['off_price']
+            stock=req.POST['stock']
+            file=req.FILES['img']
+            data=Product.objects.create(pid=pid,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock,img=file)
+            data.save()
+            return redirect(shop_home)
+        else:
+            return render(req,'shop/addproduct.html')
+    else:
+        return redirect(shop_login)
+    
+def delete_product(req,pid):
+    data=Product.objects.get(pk=pid)
+    file=data.img.url
+    file=file.split('/')[-1]
+    os.remove('media/'+file)
+    data.delete()
+    return redirect(shop_home)
+
+
+def view_bookings(req):
+    buy=Buy.objects.all()[::-1]
+    return render(req,'shop/view_booking.html',{'buy':buy})
+
+
