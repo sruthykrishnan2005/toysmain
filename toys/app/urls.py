@@ -11,11 +11,13 @@ urlpatterns = [
     path('addproduct', views.addproduct),
     path('delete_product/<pid>',views.delete_product),
     path('view_bookings',views.view_bookings),
-    path('contact/', views.contact),
-
+    
     
     #------------user--------------#
     path('register',views.register),
     path('user_home',views.user_home),
+    path('contact/', views.contact),
+    path('about_us', views.about_us),
+
 ]
 

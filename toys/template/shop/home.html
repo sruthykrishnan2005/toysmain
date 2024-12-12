@@ -90,11 +90,13 @@
       width: 80px;
       height: 800px;
       object-fit: cover;
-      background: linear-gradient(45deg, #ff6347, #6a5acd, #32cd32, #ff1493); /* Multi-color gradient */
+      background: linear-gradient(45deg, #ff6347, #6a5acd, #32cd32, #ff1493);
+      /* Multi-color gradient */
       background-size: 400% 400%;
-      animation: gradientAnimation 15s ease infinite; /* Animate gradient */
+      animation: gradientAnimation 15s ease infinite;
+      /* Animate gradient */
     }
-    
+
 
     .carousel-caption {
       position: absolute;
@@ -281,69 +283,69 @@
       width: 100%;
       max-width: 170px;
       margin-bottom: 15px;
-    } 
+    }
 
-   
+
     .footer {
       background-color: #D14B3A;
       color: #FFD230;
       padding: 20px 0;
-  }
-  
-  .footer-container {
+    }
+
+    .footer-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
-  }
-  
-  .footer-section {
+    }
+
+    .footer-section {
       flex: 1 1 200px;
       margin: 10px;
       min-width: 180px;
-  }
-  
-  .footer-section h3 {
+    }
+
+    .footer-section h3 {
       font-size: 18px;
       margin-bottom: 10px;
       font-weight: bold;
-  }
-  
-  .footer-section ul {
+    }
+
+    .footer-section ul {
       list-style: none;
       padding: 0;
       margin: 0;
-  }
-  
-  .footer-section ul li {
+    }
+
+    .footer-section ul li {
       margin: 5px 0;
-  }
-  
-  .footer-section ul li a {
+    }
+
+    .footer-section ul li a {
       color: #FFD230;
       text-decoration: none;
-  }
-  
-  .footer-section ul li a:hover {
+    }
+
+    .footer-section ul li a:hover {
       text-decoration: underline;
-  }
-  
-  .footer-section form {
+    }
+
+    .footer-section form {
       display: flex;
       flex-direction: column;
-  }
-  
-  .footer-section input {
+    }
+
+    .footer-section input {
       padding: 10px;
       margin-bottom: 10px;
       border: none;
       border-radius: 5px;
       font-size: 14px;
-  }
-  
-  .footer-section button {
+    }
+
+    .footer-section button {
       background-color: #fff;
       color: #D14B3A;
       border: none;
@@ -351,31 +353,31 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-  }
-  
-  .footer-section button:hover {
+    }
+
+    .footer-section button:hover {
       background-color: #FFD230;
       color: #D14B3A;
-  }
-  
-  .social-icons {
+    }
+
+    .social-icons {
       display: flex;
       gap: 10px;
-  }
-  
-  .social-icons a {
+    }
+
+    .social-icons a {
       color: #FFD230;
       font-size: 24px;
       text-decoration: none;
-  }
-  
-  .footer-bottom {
+    }
+
+    .footer-bottom {
       background-color: #FFD230;
       color: #D14B3A;
       text-align: center;
       padding: 10px 0;
       font-weight: bold;
-  }
+    }
   </style>
 </head>
 
@@ -396,9 +398,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="view_booking">view_booking</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact us">Contact US</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout">Logout</a>
@@ -611,25 +610,25 @@
         <h5></h5>
       </div>
     </div> -->
- 
-    <div class="container">
-      <div class="row">
-        {% for pro in products %}
-        <div class="col-lg-4">
-          <div class="card" style="width:400px">
-            <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 250px;">
-            <div class="card-body">
-              <h4 class="card-title">{{pro.name}}</h4>
-              <p class="card-text">{{pro.dis}}</p>
-              <a href="edit_product/{{pro.pk}}" class="btn btn-primary">Edit</a>
-              <a href="delete_product/{{pro.pk}}" class="btn btn-primary">Delete</a>
-            </div>
+
+  <div class="container">
+    <div class="row">
+      {% for pro in products %}
+      <div class="col-lg-4">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 250px;">
+          <div class="card-body">
+            <h4 class="card-title">{{pro.name}}</h4>
+            <p class="card-text">{{pro.dis}}</p>
+            <a href="edit_product/{{pro.pk}}" class="btn btn-primary">Edit</a>
+            <a href="delete_product/{{pro.pk}}" class="btn btn-primary">Delete</a>
           </div>
-  
         </div>
-        {% endfor %}
+
       </div>
+      {% endfor %}
     </div>
+  </div>
   <div class="holiday-section">
 
     <img src="{% static 'images/imgfunfiesta.webp' %}" alt="funfiesta" style="width: 100%; height: auto;">
@@ -637,74 +636,144 @@
 
   <footer class="footer">
     <div class="footer-container">
-        <!-- Information Section -->
-        <div class="footer-section">
-            <h3>INFORMATION</h3>
-            <ul>
-                <li><a href="#">Returns & Cancellation</a></li>
-                <li><a href="#">Refunds</a></li>
-                <li><a href="#">Shipping Policy</a></li>
-                <li><a href="#">Privacy And Cookies</a></li>
-                <li><a href="#">Disclaimer</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
+      <!-- Information Section -->
+      <div class="footer-section">
+        <h3>INFORMATION</h3>
+        <ul>
+          <li><a href="#">Returns & Cancellation</a></li>
+          <li><a href="#">Refunds</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Privacy And Cookies</a></li>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
 
-        <!-- Featured Brands Section -->
-        <div class="footer-section">
-            <h3>FEATURED BRANDS</h3>
-            <ul>
-                <li><a href="#">Barbie</a></li>
-                <li><a href="#">Disney</a></li>
-                <li><a href="#">Funskool</a></li>
-                <li><a href="#">Hot Wheels</a></li>
-                <li><a href="#">Lego</a></li>
-                <li><a href="#">Marvel</a></li>
-                <li><a href="#">Nerf</a></li>
-            </ul>
-        </div>
+      <!-- Featured Brands Section -->
+      <div class="footer-section">
+        <h3>FEATURED BRANDS</h3>
+        <ul>
+          <li><a href="#">Barbie</a></li>
+          <li><a href="#">Disney</a></li>
+          <li><a href="#">Funskool</a></li>
+          <li><a href="#">Hot Wheels</a></li>
+          <li><a href="#">Lego</a></li>
+          <li><a href="#">Marvel</a></li>
+          <li><a href="#">Nerf</a></li>
+        </ul>
+      </div>
 
-        <!-- Categories Section -->
-        <div class="footer-section">
-            <h3>CATEGORIES</h3>
-            <ul>
-                <li><a href="#">Toys & Games</a></li>
-                <li><a href="#">Baby Care & Gear</a></li>
-                <li><a href="#">Party Decorations</a></li>
-                <li><a href="#">Play & School Furniture</a></li>
-                <li><a href="#">Kids Books</a></li>
-                <li><a href="#">Action Figures</a></li>
-                <li><a href="#">Collectibles</a></li>
-            </ul>
-        </div>
+      <!-- Categories Section -->
+      <div class="footer-section">
+        <h3>CATEGORIES</h3>
+        <ul>
+          <li><a href="#">Toys & Games</a></li>
+          <li><a href="#">Baby Care & Gear</a></li>
+          <li><a href="#">Party Decorations</a></li>
+          <li><a href="#">Play & School Furniture</a></li>
+          <li><a href="#">Kids Books</a></li>
+          <footer class="footer">
+            <div class="footer-container">
+              <!-- Information Section -->
+              <div class="footer-section">
+                <h3>INFORMATION</h3>
+                <ul>
+                  <li><a href="#">Returns & Cancellation</a></li>
+                  <li><a href="#">Refunds</a></li>
+                  <li><a href="#">Shipping Policy</a></li>
+                  <li><a href="#">Privacy And Cookies</a></li>
+                  <li><a href="#">Disclaimer</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
 
-        <!-- Newsletter Signup Section -->
-        <div class="footer-section">
-            <h3>NEWSLETTER SIGN UP</h3>
-            <form>
-                <input type="email" placeholder="enter your email address" required>
-                <button type="submit">SUBMIT</button>
-            </form>
-        </div>
+              <!-- Featured Brands Section -->
+              <div class="footer-section">
+                <h3>FEATURED BRANDS</h3>
+                <ul>
+                  <li><a href="#">Barbie</a></li>
+                  <li><a href="#">Disney</a></li>
+                  <li><a href="#">Funskool</a></li>
+                  <li><a href="#">Hot Wheels</a></li>
+                  <li><a href="#">Lego</a></li>
+                  <li><a href="#">Marvel</a></li>
+                  <li><a href="#">Nerf</a></li>
+                </ul>
+              </div>
 
-        <!-- Social Media Section -->
-        <div class="footer-section">
-            <h3>FOLLOW FUNCORP HERE</h3>
-            <div class="social-icons">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+              <!-- Categories Section -->
+              <div class="footer-section">
+                <h3>CATEGORIES</h3>
+                <ul>
+                  <li><a href="#">Toys & Games</a></li>
+                  <li><a href="#">Baby Care & Gear</a></li>
+                  <li><a href="#">Party Decorations</a></li>
+                  <li><a href="#">Play & School Furniture</a></li>
+                  <li><a href="#">Kids Books</a></li>
+                  <li><a href="#">Action Figures</a></li>
+                  <li><a href="#">Collectibles</a></li>
+                </ul>
+              </div>
+
+              <!-- Newsletter Signup Section -->
+              <div class="footer-section">
+                <h3>NEWSLETTER SIGN UP</h3>
+                <form>
+                  <input type="email" placeholder="enter your email address" required>
+                  <button type="submit">SUBMIT</button>
+                </form>
+              </div>
+
+              <!-- Social Media Section -->
+              <div class="footer-section">
+                <h3>FOLLOW FUNCORP HERE</h3>
+                <div class="social-icons">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
             </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+              <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
+            </div>
+          </footer>
+          <li><a href="#">Action Figures</a></li>
+          <li><a href="#">Collectibles</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Signup Section -->
+      <div class="footer-section">
+        <h3>NEWSLETTER SIGN UP</h3>
+        <form>
+          <input type="email" placeholder="enter your email address" required>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="footer-section">
+        <h3>FOLLOW FUNCORP HERE</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
+      </div>
     </div>
 
     <!-- Footer Bottom -->
     <div class="footer-bottom">
-        <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
+      <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
     </div>
-</footer>
+  </footer>
 </body>
 
 </html>

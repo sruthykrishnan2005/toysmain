@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .about-text {
+            max-width: 50%;
+            padding-right: 20px;
+        }
+
+        .about-text h2 {
+            color: #000;
+        }
+
+        .about-text p {
+            color: #524c4c;
+        }
+
+        .about-image {
+            max-width: 50%;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .footer {
+            background-color: #D14B3A;
+            color: #FFD230;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 10px;
+            min-width: 180px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+
+        .footer-section ul li a {
+            color: #FFD230;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .footer-section button {
+            background-color: #fff;
+            color: #D14B3A;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .footer-section button:hover {
+            background-color: #FFD230;
+            color: #D14B3A;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #FFD230;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            background-color: #FFD230;
+            color: #D14B3A;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+{% load static %}
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Toys shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_cart">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div style="display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6;">
+        <div style="max-width: 50%; padding-right: 20px;">
+          <h2 style="color: #000;">About Us</h2>
+          <p style="color: #333;">
+            The Quality Toys - this was the mantra that kick-started a passionate dream called Uttam Toys. 
+            A dream to ensure every child gets access to the most mind-blowing, quality educational toys & games that are both developmental & super fun!
+          </p>
+        </div>
+        <div style="max-width: 50%; text-align: center;">
+          <img src="{% static 'images/toys1about.jpg.jpeg' %}" alt="Toys display" style="max-width: 100%; border-radius: 8px;">
+        </div>
+      </div>
+      
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Information Section -->
+            <div class="footer-section">
+                <h3>INFORMATION</h3>
+                <ul>
+                    <li><a href="#">Returns & Cancellation</a></li>
+                    <li><a href="#">Refunds</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Privacy And Cookies</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Featured Brands Section -->
+            <div class="footer-section">
+                <h3>FEATURED BRANDS</h3>
+                <ul>
+                    <li><a href="#">Barbie</a></li>
+                    <li><a href="#">Disney</a></li>
+                    <li><a href="#">Funskool</a></li>
+                    <li><a href="#">Hot Wheels</a></li>
+                    <li><a href="#">Lego</a></li>
+                    <li><a href="#">Marvel</a></li>
+                    <li><a href="#">Nerf</a></li>
+                </ul>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="footer-section">
+                <h3>CATEGORIES</h3>
+                <ul>
+                    <li><a href="#">Toys & Games</a></li>
+                    <li><a href="#">Baby Care & Gear</a></li>
+                    <li><a href="#">Party Decorations</a></li>
+                    <li><a href="#">Play & School Furniture</a></li>
+                    <li><a href="#">Kids Books</a></li>
+                    <li><a href="#">Action Figures</a></li>
+                    <li><a href="#">Collectibles</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup Section -->
+            <div class="footer-section">
+                <h3>NEWSLETTER SIGN UP</h3>
+                <form>
+                    <input type="email" placeholder="enter your email address" required>
+                    <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <h3>FOLLOW FUNCORP HERE</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

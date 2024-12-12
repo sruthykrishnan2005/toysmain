@@ -4,7 +4,7 @@ from django.contrib import messages
 from .models import *
 import os
 from django.contrib.auth.models import User
-from .models import Contact
+
 
 
 
@@ -103,16 +103,11 @@ def view_bookings(req):
     buy=Buy.objects.all()[::-1]
     return render(req,'shop/view_booking.html',{'buy':buy})
 
-def contact(request):
-    if request.method == 'POST':
-        name=request.POST.get('name')
-        phno=request.POST.get('phno')
-        email=request.POST.get('email')
-        # if name and phno and email:
-        data=Contact.objects.create(name=name,phone_number=phno,email=email)
-        data.save()
-        
-    return render(request,'contact.html')
+def contact(req):
+    return render(req,'user/contact.html')
+
+def about_us(req):
+    return render(req,'user/about.html')
 
 
 
