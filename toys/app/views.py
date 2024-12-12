@@ -90,6 +90,28 @@ def addproduct(req):
     else:
         return redirect(shop_login)
     
+def edit_product(req,pid):
+    if req.method=='POST':
+        p_id=req.POST['pid']
+        name=req.POST['name']
+        descrip=req.POST['descrip']
+        price=req.POST['price']
+        off_price=req.POST['off_price']
+        stock=req.POST['stock']
+        file=req.FILES.get('img')
+        if file:
+            Product.objects.filter(pk=pid).update(pid=p_id,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock)
+            data=Product.objects.get(pk=pid)
+            data.img=file
+            data.save()
+        else:
+            Product.objects.filter(pk=pid).update(pid=p_id,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock)
+        return redirect(shop_home)
+    else:
+        data=Product.objects.get(pk=pid)
+        return render(req,'shop/edit.html',{'data':data})
+    
+    
 def delete_product(req,pid):
     data=Product.objects.get(pk=pid)
     file=data.img.url
@@ -109,5 +131,10 @@ def contact(req):
 def about_us(req):
     return render(req,'user/about.html')
 
+def view_product(req,pid):
+    data=Product.objects.get(pk=pid)
+    return render(req,'user/view_pro.html',{'products':data})
 
 
+def category_view(req):
+    return render(req, 'user/category.html')
