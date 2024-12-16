@@ -414,6 +414,7 @@
     <div class="row">
       {% for pro in products %}
       <div class="col-lg-4">
+        <a href=" product_view/{{pro.pk}}"></a>
         <div class="card" style="width:400px">
           <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 400px;">
           <div class="card-body">
