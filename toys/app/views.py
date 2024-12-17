@@ -88,11 +88,14 @@ def addproduct(req):
             off_price=req.POST['off_price']
             stock=req.POST['stock']
             file=req.FILES['img']
-            data=Product.objects.create(pid=pid,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock,img=file)
+            cate=req.POST['Category']
+            cat=Category.objects.get(pk=cate)
+            data=Product.objects.create(pid=pid,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock,categorie=cat,img=file)
             data.save()
             return redirect(shop_home)
         else:
-            return render(req,'shop/addproduct.html')
+            cate=Category.objects.all()
+            return render(req,'shop/addproduct.html',{'cate':cate})
     else:
         return redirect(shop_login)
     
@@ -130,6 +133,22 @@ def delete_product(req,pid):
     os.remove('media/'+file)
     data.delete()
     return redirect(shop_home)
+
+def add_category(req):
+    if 'shop' in req.session:
+        if req.method=='POST':
+            c_name=req.POST['cate_name']
+            c_name=c_name.lower()
+            try:
+                cate=Category.objects.get( name=c_name)
+            except:
+                data=Category.objects.create( name=c_name)
+                data.save()
+            return redirect(add_category)
+        categories=Category.objects.all()
+        return render(req,'shop/cate.html' ,{'cate':categories})
+    else:
+        return render(req,'shop/cate.html')
 
 
 
