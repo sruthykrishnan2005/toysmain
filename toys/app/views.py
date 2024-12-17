@@ -42,11 +42,11 @@ def shop_logout(req):
     
 
 def shop_home(req):
-    if 'shop' in req.session:
-        data=Product.objects.all()
-        return render(req,'shop/home.html',{'products':data})
-    else:
-        return redirect(shop_login)
+    # if 'shop' in req.session:
+    #     data=Product.objects.all()
+        return render(req,'shop/home.html')
+    # else:
+    #     return redirect(shop_login)
     
     
     
@@ -88,9 +88,9 @@ def addproduct(req):
             off_price=req.POST['off_price']
             stock=req.POST['stock']
             file=req.FILES['img']
-            cate=req.POST['Category']
+            cate=req.POST['category']
             cat=Category.objects.get(pk=cate)
-            data=Product.objects.create(pid=pid,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock,categorie=cat,img=file)
+            data=Product.objects.create(pid=pid,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock,category=cat,img=file)
             data.save()
             return redirect(shop_home)
         else:

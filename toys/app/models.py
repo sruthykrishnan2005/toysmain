@@ -14,11 +14,8 @@ class Product(models.Model):
     offer_price=models.IntegerField()
     stock=models.IntegerField()
     img=models.FileField()
-    Category=models.CharField(max_length=100,null=True,blank=True)
-    rideonvehicles=models.TextField(null=True,blank=True)
-    building=models.TextField(null=True, blank=True)
-    dolls=models.TextField(null=True, blank=True)
-    img=models.FileField()
+    Category=models.ForeignKey(Category,on_delete=models.CASCADE)
+
     
 
     
