@@ -91,35 +91,14 @@
       margin-top: 10px;
     }
 
-    /* .holiday-section {
-    background-color: #f5d5d5;
-    text-align: center;
-    padding: 50px 20px;
-  }
-
-  .holiday-section h1 {
-    font-size: 2.5rem;
-    color: #c02a2a;
-  }
-
-  .holiday-section p {
-    font-size: 1.2rem;
-    color: #a62525;
-  }
-
-  .holiday-section img {
-    max-width: 300px;
-    margin-top: 20px;
-  } */
-
     .container {
       background-color: #eeeda3;
       box-shadow: none;
     }
 
-     .feature-card {
-      background-color: #babea2;
-      border: 1px solid #ddd;
+    .feature-card {
+      background-color: #6b7144;
+      /* border: 1px solid #ddd;  */
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       padding: 20px;
@@ -409,91 +388,92 @@
 
   <div class="container">
     <div class="row">
-      {% for pro in products %}
+      {% for pro in Product %}
       <div class="col-lg-4">
-        <a href=" product_view/{{pro.pk}}"></a>
-        <div class="card" style="width:400px">
-          <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 400px;">
-          <div class="card-body">
-            <h4 class="card-title">{{pro.name}}</h4>
-            <p class="card-text">{{pro.dis}}</p>
+        <a href=" product_view/{{pro.pk}}">
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">{{pro.name}}</h4>
+              <p class="card-text">{{pro.dis}}</p>
+              <p class="card-text">{{pro.offer_price}}</p>
+            </div>
           </div>
-        </div>
-
+        </a>
       </div>
       {% endfor %}
     </div>
   </div>
   <footer class="footer">
     <div class="footer-container">
-        <!-- Information Section -->
-        <div class="footer-section">
-            <h3>INFORMATION</h3>
-            <ul>
-                <li><a href="#">Returns & Cancellation</a></li>
-                <li><a href="#">Refunds</a></li>
-                <li><a href="#">Shipping Policy</a></li>
-                <li><a href="#">Privacy And Cookies</a></li>
-                <li><a href="#">Disclaimer</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
+      <!-- Information Section -->
+      <div class="footer-section">
+        <h3>INFORMATION</h3>
+        <ul>
+          <li><a href="#">Returns & Cancellation</a></li>
+          <li><a href="#">Refunds</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Privacy And Cookies</a></li>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
 
-        <!-- Featured Brands Section -->
-        <div class="footer-section">
-            <h3>FEATURED BRANDS</h3>
-            <ul>
-                <li><a href="#">Barbie</a></li>
-                <li><a href="#">Disney</a></li>
-                <li><a href="#">Funskool</a></li>
-                <li><a href="#">Hot Wheels</a></li>
-                <li><a href="#">Lego</a></li>
-                <li><a href="#">Marvel</a></li>
-                <li><a href="#">Nerf</a></li>
-            </ul>
-        </div>
+      <!-- Featured Brands Section -->
+      <div class="footer-section">
+        <h3>FEATURED BRANDS</h3>
+        <ul>
+          <li><a href="#">Barbie</a></li>
+          <li><a href="#">Disney</a></li>
+          <li><a href="#">Funskool</a></li>
+          <li><a href="#">Hot Wheels</a></li>
+          <li><a href="#">Lego</a></li>
+          <li><a href="#">Marvel</a></li>
+          <li><a href="#">Nerf</a></li>
+        </ul>
+      </div>
 
-        <!-- Categories Section -->
-        <div class="footer-section">
-            <h3>CATEGORIES</h3>
-            <ul>
-                <li><a href="#">Toys & Games</a></li>
-                <li><a href="#">Baby Care & Gear</a></li>
-                <li><a href="#">Party Decorations</a></li>
-                <li><a href="#">Play & School Furniture</a></li>
-                <li><a href="#">Kids Books</a></li>
-                <li><a href="#">Action Figures</a></li>
-                <li><a href="#">Collectibles</a></li>
-            </ul>
-        </div>
+      <!-- Categories Section -->
+      <div class="footer-section">
+        <h3>CATEGORIES</h3>
+        <ul>
+          <li><a href="#">Toys & Games</a></li>
+          <li><a href="#">Baby Care & Gear</a></li>
+          <li><a href="#">Party Decorations</a></li>
+          <li><a href="#">Play & School Furniture</a></li>
+          <li><a href="#">Kids Books</a></li>
+          <li><a href="#">Action Figures</a></li>
+          <li><a href="#">Collectibles</a></li>
+        </ul>
+      </div>
 
-        <!-- Newsletter Signup Section -->
-        <div class="footer-section">
-            <h3>NEWSLETTER SIGN UP</h3>
-            <form>
-                <input type="email" placeholder="enter your email address" required>
-                <button type="submit">SUBMIT</button>
-            </form>
-        </div>
+      <!-- Newsletter Signup Section -->
+      <div class="footer-section">
+        <h3>NEWSLETTER SIGN UP</h3>
+        <form>
+          <input type="email" placeholder="enter your email address" required>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
 
-        <!-- Social Media Section -->
-        <div class="footer-section">
-            <h3>FOLLOW FUNCORP HERE</h3>
-            <div class="social-icons">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-            </div>
+      <!-- Social Media Section -->
+      <div class="footer-section">
+        <h3>FOLLOW FUNCORP HERE</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
+      </div>
     </div>
 
     <!-- Footer Bottom -->
     <div class="footer-bottom">
-        <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
+      <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
     </div>
-</footer>
+  </footer>
 </body>
 
 </html>

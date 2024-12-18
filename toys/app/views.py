@@ -39,17 +39,7 @@ def shop_logout(req):
     req.session.flush()
     return redirect(shop_login)
 
-    
 
-def shop_home(req):
-    # if 'shop' in req.session:
-    #     data=Product.objects.all()
-        return render(req,'shop/home.html')
-    # else:
-    #     return redirect(shop_login)
-    
-    
-    
 def register(req):
     if req.method=='POST':
         uname=req.POST['uname']
@@ -67,41 +57,40 @@ def register(req):
     
 
     
+
+def shop_home(req):
+        products=Product.objects.all()
+        categories=Category.objects.all()
+    # if 'shop' in req.session:
+    #     data=Product.objects.all()
+        return render(req,'shop/home.html',{'products':products,'category':categories})
+    # else:
+    #     return redirect(shop_login)
     
-def user_home(req):
-    if 'user' in req.session:
-        data=Product.objects.all()
-        return render(req,'user/home.html',{'products':data})
-    else:
-        return redirect(shop_login)
     
 
-    
-
-def addproduct(req):
+def addproduct(req) :
     if 'shop' in req.session:
         if req.method=='POST':
             pid=req.POST['pid']
             name=req.POST['name']
-            descrip=req.POST['descrip']
+            dis=req.POST['descrip']
             price=req.POST['price']
             off_price=req.POST['off_price']
             stock=req.POST['stock']
-            file=req.FILES['img']
             cate=req.POST['category']
+            file=req.FILES['img'] 
             cat=Category.objects.get(pk=cate)
-            data=Product.objects.create(pid=pid,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock,category=cat,img=file)
+            data=Product.objects.create(pid=pid,name=name,dis=dis,offer_price=off_price,price=price,stock=stock,Category=cat,img=file)
             data.save()
             return redirect(shop_home)
         else:
             cate=Category.objects.all()
             return render(req,'shop/addproduct.html',{'cate':cate})
     else:
-        return redirect(shop_login)
+        return redirect(shop_login) 
     
 
-
-    
 def edit_product(req,pid):
     if req.method=='POST':
         p_id=req.POST['pid']
@@ -118,13 +107,13 @@ def edit_product(req,pid):
             data.save()
         else:
             Product.objects.filter(pk=pid).update(pid=p_id,name=name,dis=descrip,price=price,offer_price=off_price,stock=stock)
-        return redirect(shop_home)
+            return redirect(shop_home)
     else:
         data=Product.objects.get(pk=pid)
-        return render(req,'shop/edit.html',{'data':data})
+        cate=Category.objects.all()
+        return render(req,'shop/edit.html',{'data':data, 'cate':cate})
     
 
-    
     
 def delete_product(req,pid):
     data=Product.objects.get(pk=pid)
@@ -133,6 +122,8 @@ def delete_product(req,pid):
     os.remove('media/'+file)
     data.delete()
     return redirect(shop_home)
+
+
 
 def add_category(req):
     if 'shop' in req.session:
@@ -152,6 +143,16 @@ def add_category(req):
 
 
 
+    
+def user_home(req):
+    if 'user' in req.session:
+        data=Product.objects.all()
+        return render(req,'user/home.html',{'Product':data})
+    else:
+        return redirect(shop_login)
+    
+
+    
 def view_bookings(req):
     buy=Buy.objects.all()[::-1]
     return render(req,'shop/view_booking.html',{'buy':buy})
@@ -168,10 +169,10 @@ def about_us(req):
 
 
 
+
 def product_view(req,pid):
        data=Product.objects.get(pk=pid)
-       return render(req,'user/view_pro.html',{'Product':data})
-    
+       return render(req,'user/view_pro.html',{'product':data})
 
 
 
@@ -217,7 +218,6 @@ def pro_buy(req,pid):
     buy=Buy.objects.create(product=product,user=user,qty=qty,price=price)
     buy.save()
     return redirect(bookings)
-
 
 
 
