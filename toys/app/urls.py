@@ -26,6 +26,8 @@ urlpatterns = [
     path('cart_pro_buy/<cid>',views.cart_pro_buy),
     path('bookings',views.bookings),
     path('pro_buy/<pid>',views.pro_buy),
+    path('qty_in/<cid>',views.qty_in),
+    path('qty_dec/<cid>',views.qty_dec),
 
 
 ]

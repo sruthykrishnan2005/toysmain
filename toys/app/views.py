@@ -54,7 +54,7 @@ def register(req):
         return redirect(shop_login)
     else:
         return render(req,'user/register.html')
-    
+
 
     
 
@@ -173,6 +173,23 @@ def about_us(req):
 def product_view(req,pid):
        data=Product.objects.get(pk=pid)
        return render(req,'user/view_pro.html',{'product':data})
+
+def qty_in(req,cid):
+    data=Cart.objects.get(pk=cid)
+    data.qty+=1
+    data.save()
+    return redirect(view_cart)
+
+def qty_dec(req,cid):
+    data=Cart.objects.get(pk=cid)
+    data.qty-=1
+    data.save()
+    print(data.qty)
+    if data.qty==0:
+        data.delete()
+    return redirect(view_cart)
+
+
 
 
 
