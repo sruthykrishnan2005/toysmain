@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import *
@@ -142,6 +142,12 @@ def add_category(req):
         return render(req,'shop/cate.html')
 
 
+def view_bookings(req):
+    buy=Buy.objects.all()[::-1]
+    return render(req,'shop/view_booking.html',{'buy':buy})
+
+
+
 
     
 def user_home(req):
@@ -153,10 +159,6 @@ def user_home(req):
     
 
     
-def view_bookings(req):
-    buy=Buy.objects.all()[::-1]
-    return render(req,'shop/view_booking.html',{'buy':buy})
-
 
 
 def contact(req):
@@ -169,10 +171,22 @@ def about_us(req):
 
 
 
-
 def product_view(req,pid):
        data=Product.objects.get(pk=pid)
        return render(req,'user/view_pro.html',{'product':data})
+
+
+
+def category_view(req, category_id):
+    try:
+        category = Category.objects.get(pid=category_id)
+    except Category.DoesNotExist:
+        return render(req, 'user/view_cate.html', {'error': 'Category does not exist'})
+    
+    products = Product.objects.filter(category=category)  
+    return render(req, 'user/view_cate.html', {'category': category, 'products': products})
+
+
 
 def qty_in(req,cid):
     data=Cart.objects.get(pk=cid)
@@ -244,6 +258,10 @@ def bookings(req):
     return render(req,'user/bookings.html',{'bookings':buy})
 
 
+
+def ride_on_vehicles(req,cid):
+    category = Product.objects.filter(category=category)  
+    return render(req, 'user/ride on vehicles.html',{'ride_on_vehicles':ride_on_vehicles})
 
 
 

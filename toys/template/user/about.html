@@ -153,14 +153,24 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="booking">Booking</a>
+                        <a class="nav-link" href="../bookings">Booking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_cart">Cart</a>
+                        <a class="nav-link" href="../view_cart">Cart</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="/" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- <li><a class="dropdown-item" href="categories">Categories</a></li> -->
+                            <li><a class="dropdown-item" href="ride on vehicles">Ride On Vehicles</a></li>
+                            <li><a class="dropdown-item" href="dolls">Dolls</a></li>
+                            <li><a class="dropdown-item" href="buildings">Buildings</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../contact">Contact US</a>
-                      </li>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../logout">Logout</a>
                     </li>
@@ -169,25 +179,29 @@
         </div>
     </nav>
 
-
-    <div style="display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6;">
+    <div
+        style="display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6;">
         <div style="max-width: 50%; padding-right: 20px;">
-          <h2 style="color: #000;">About Us</h2>
-          <p style="color: #333;">
-            The Quality Toys - this was the mantra that kick-started a passionate dream called Uttam Toys. 
-            A dream to ensure every child gets access to the most mind-blowing, quality educational toys & games that are both developmental & super fun!
-          </p>
+            <h2 style="color: #000;">About Us</h2>
+            <p style="color: #333;">
+                The Quality Toys - this was the mantra that kick-started a passionate dream called Uttam Toys.
+                A dream to ensure every child gets access to the most mind-blowing, quality educational toys & games
+                that are both developmental & super fun!
+            </p>
         </div>
         <div style="max-width: 50%; text-align: center;">
-          <img src="{% static 'images/toys1about.jpg.jpeg' %}" alt="Toys display" style="max-width: 100%; border-radius: 8px;">
+            <img src="{% static 'images/toys1about.jpg.jpeg' %}" alt="Toys display"
+                style="max-width: 100%; border-radius: 8px;">
         </div>
-      </div>
-      
-      <div style="display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6;">
+    </div>
+
+    <div
+        style="display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6;">
         <div style="max-width: 50%; padding-right: 20px;">
             <p style="color: #333;">
-                At Toys Shop, we believe that every child deserves the best when it comes to play and learning. 
-                Our mission is to provide high-quality, innovative educational toys that not only spark creativity but also aid in a child's development. 
+                At Toys Shop, we believe that every child deserves the best when it comes to play and learning.
+                Our mission is to provide high-quality, innovative educational toys that not only spark creativity but
+                also aid in a child's development.
                 We are dedicated to offering toys and games that are both engaging and enriching for young minds.
             </p>
         </div>
@@ -195,8 +209,8 @@
             <img src="{% static 'images/imge1.jpg' %}" alt="Toys display" style="max-width: 100%; border-radius: 8px;">
         </div>
     </div>
-    
-      
+
+
 
     <footer class="footer">
         <div class="footer-container">
