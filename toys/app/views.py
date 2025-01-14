@@ -5,6 +5,8 @@ from .models import *
 import os
 from django.contrib.auth.models import User
 from django.conf import settings
+from .models import Category, Product
+
 
 
 
@@ -177,16 +179,25 @@ def product_view(req,pid):
 
 
 
-def category_view(req, category_id):
-    try:
-        category = Category.objects.get(pid=category_id)
-    except Category.DoesNotExist:
-        return render(req, 'user/view_cate.html', {'error': 'Category does not exist'})
+# def category_view(req, category_id):
+#     try:
+#         category = Category.objects.get(pid=category_id)
+#     except Category.DoesNotExist:
+#         return render(req, 'user/view_cate.html', {'error': 'Category does not exist'})
     
-    products = Product.objects.filter(category=category)  
-    return render(req, 'user/view_cate.html', {'category': category, 'products': products})
+#     products = Product.objects.filter(category=category)  
+#     return render(req, 'user/view_cate.html', {'category': category, 'products': products})
 
 
+def category_view(request, cid):
+    # Get the category or return 404 if not found
+    category = get_object_or_404(Category, pk=cid)
+    
+    # Fetch all products related to this category
+    products = Product.objects.filter(category=category)
+    
+    # Pass the category and products to the template
+    return render(request, 'user/view_cate.html', {'category': category, 'products': products})
 
 def qty_in(req,cid):
     data=Cart.objects.get(pk=cid)

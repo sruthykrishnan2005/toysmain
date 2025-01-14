@@ -33,7 +33,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">Category</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <!-- <li><a class="dropdown-item" href="categories">Categories</a></li> -->
-                            <li><a class="dropdown-item" href="ride on vehicles">Ride On Vehicles</a></li>
+                            <li><a class="dropdown-item" href="{% url 'ride_on_vehicles' cid=category.id %}">Ride On Vehicles</a></li>
                             <li><a class="dropdown-item" href="dolls">Dolls</a></li>
                             <li><a class="dropdown-item" href="buildings">Buildings</a></li>
                         </ul>
