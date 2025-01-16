@@ -20,7 +20,6 @@ urlpatterns = [
     path('user_home',views.user_home),
     path('contact/', views.contact),
     path('about_us', views.about_us),
-    path('ride-on-vehicles/<int:cid>/', views.category_view, name='ride_on_vehicles'),
     path('product_view/<pid>',views.product_view),
     path('add_to_cart/<pid>',views.add_to_cart),
     path('view_cart',views.view_cart),
@@ -29,6 +28,8 @@ urlpatterns = [
     path('pro_buy/<pid>',views.pro_buy),
     path('qty_in/<cid>',views.qty_in),
     path('qty_dec/<cid>',views.qty_dec),
+    path('ride-on-vehicles/<int:name>/', views.ride_on_vehicles),
+
 
 
 ]

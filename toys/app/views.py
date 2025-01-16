@@ -269,10 +269,10 @@ def bookings(req):
     return render(req,'user/bookings.html',{'bookings':buy})
 
 
-
-def ride_on_vehicles(req,cid):
-    category = Product.objects.filter(category=category)  
-    return render(req, 'user/ride on vehicles.html',{'ride_on_vehicles':ride_on_vehicles})
-
-
-
+def ride_on_vehicles(request, name):
+    try:
+        category = Category.objects.get(name)
+    except Category.DoesNotExist:
+        category = None
+    
+    return render(request, 'user/ride on vehicles.html', {'category': category})
