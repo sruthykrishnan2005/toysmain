@@ -233,9 +233,13 @@ def add_to_cart(req,pid):
 
 
 def view_cart(req):
-    user=User.objects.get(username=req.session['user'])
-    data=Cart.objects.filter(user=user)
-    return render(req,'user/cart.html',{'cart':data})
+    # user=User.objects.get(username=req.session['user'])
+    # data=Cart.objects.filter(user=user)
+
+    cart=Cart.objects.filter(user=req.user,is_active=True)
+    cart_total=sum(item.product.offer_price*item.qty for item in cart)
+
+    return render(req,'user/cart.html',{'cart':cart, 'cart_total':cart_total})
 
 
 
