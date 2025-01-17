@@ -28,9 +28,9 @@ urlpatterns = [
     path('pro_buy/<pid>',views.pro_buy),
     path('qty_in/<cid>',views.qty_in),
     path('qty_dec/<cid>',views.qty_dec),
-    path('ride-on-vehicles/<int:name>/', views.ride_on_vehicles),
-
-
+    path('ride-on-vehicles/<int:name>/',views.category_view),
+    path('category_view/', views.category_view, name='view_categories'),
+    
 
 ]
 

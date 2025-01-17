@@ -50,20 +50,33 @@
             </div>
         </div>
     </nav>
-    <h1>{{ category.name }}</h1>
-    <p>{{ category.dis }}</p>
 
-    <ul>
-        {% for product in Product %}
-        <li>
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.dis }}</p>
-            <p>Price: ${{ product.price }}</p>
-            <img src="{{ product.img.url }}" alt="{{ product.name }}">
-        </li>
-        {% endfor %}
-    </ul>
-
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Explore Toy Categories</h1>
+        <div class="row">
+            {% if categories %}
+            {% for category in categories %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    {% if category.image %}
+                    <img src="{{ category.image.url }}" class="card-img-top" alt="{{ category.name }}">
+                    {% else %}
+                    <img src="images/3dcar.jpg" class="card-img-top" alt="{{ category.name }}">
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <a href="" class="btn btn-primary">View Products</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-12">
+                <p class="text-center">No categories available at the moment.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </body>
 
 </html>

@@ -189,15 +189,13 @@ def product_view(req,pid):
 #     return render(req, 'user/view_cate.html', {'category': category, 'products': products})
 
 
-def category_view(request, cid):
-    # Get the category or return 404 if not found
-    category = get_object_or_404(Category, pk=cid)
+def category_view(request):
+    # Fetch all categories from the database
+    categories = Category.objects.all()
     
-    # Fetch all products related to this category
-    products = Product.objects.filter(category=category)
-    
-    # Pass the category and products to the template
-    return render(request, 'user/view_cate.html', {'category': category, 'products': products})
+    # Render the 'category.html' template with the categories passed as context
+    return render(request, 'shop/cate.html', {'categories': categories})
+
 
 def qty_in(req,cid):
     data=Cart.objects.get(pk=cid)
@@ -273,10 +271,10 @@ def bookings(req):
     return render(req,'user/bookings.html',{'bookings':buy})
 
 
-def ride_on_vehicles(request, name):
-    try:
-        category = Category.objects.get(name)
-    except Category.DoesNotExist:
-        category = None
+# def ride_on_vehicles(request, name):
+#     try:
+#         category = Category.objects.get(name)
+#     except Category.DoesNotExist:
+#         category = None
     
-    return render(request, 'user/ride on vehicles.html', {'category': category})
+#     return render(request, 'user/ride on vehicles.html', {'category': category})
