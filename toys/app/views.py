@@ -5,7 +5,7 @@ from .models import *
 import os
 from django.contrib.auth.models import User
 from django.conf import settings
-from .models import Category, Product
+
 
 
 
@@ -189,13 +189,16 @@ def product_view(req,pid):
 #     return render(req, 'user/view_cate.html', {'category': category, 'products': products})
 
 
-def category_view(request):
-    # Fetch all categories from the database
-    categories = Category.objects.all()
+def category_view(request,category_id):
+    try:
+        category = get_object_or_404(Category,id=category_id)
+        
+        products = Product.objects.filter(Category=category)
+        
+        return render(request, 'user/category_detail.html', {'category': category, 'products': products})
     
-    # Render the 'category.html' template with the categories passed as context
-    return render(request, 'shop/cate.html', {'categories': categories})
-
+    except Category.DoesNotExist:
+        return render(request, 'user/category_detail.html', {'error': 'Category not found'})
 
 def qty_in(req,cid):
     data=Cart.objects.get(pk=cid)
@@ -270,11 +273,3 @@ def bookings(req):
     buy=Buy.objects.filter(user=user)[::-1]
     return render(req,'user/bookings.html',{'bookings':buy})
 
-
-# def ride_on_vehicles(request, name):
-#     try:
-#         category = Category.objects.get(name)
-#     except Category.DoesNotExist:
-#         category = None
-    
-#     return render(request, 'user/ride on vehicles.html', {'category': category})

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Category(models.Model):
     name=models.TextField()
+    description = models.TextField()
 
 class Product(models.Model):
     pid=models.TextField()

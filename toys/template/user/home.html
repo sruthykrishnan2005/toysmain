@@ -22,52 +22,107 @@
       padding: 20px;
     }
 
+    /* Default style for carousel image */
     .carousel-inner img {
-      width: 80px;
-      height: 800px;
+      width: 100%;
+      /* Make sure the image takes full width */
+      height: 400px;
+      /* Set a default height */
       object-fit: cover;
       background: linear-gradient(45deg, #ff6347, #6a5acd, #32cd32, #ff1493);
-      /* Multi-color gradient */
       background-size: 400% 400%;
       animation: gradientAnimation 15s ease infinite;
-      /* Animate gradient */
     }
 
+    /* Media query for small screens (mobile devices) */
+    @media (max-width: 576px) {
+      .carousel-inner img {
+        width: 100%;
+        /* Ensure image takes full width */
+        height: 250px;
+        /* Smaller height for mobile */
+      }
 
-    .carousel-caption {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #babea2;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 5px;
+      .carousel-caption {
+        font-size: 14px;
+        /* Smaller font size for mobile */
+        padding: 8px 15px;
+        /* Adjust padding for mobile */
+      }
     }
 
+    /* Media query for medium screens (tablets) */
+    @media (max-width: 768px) {
+      .carousel-inner img {
+        width: 100%;
+        height: 300px;
+        /* Adjust height for tablet screens */
+      }
+
+      .carousel-caption {
+        font-size: 16px;
+        /* Adjust font size */
+        padding: 10px 20px;
+        /* Adjust padding */
+      }
+    }
+
+    /* Media query for larger screens (desktops) */
+    @media (min-width: 992px) {
+      .carousel-inner img {
+        width: 100%;
+        height: 500px;
+        /* Adjust height for larger screens */
+      }
+
+      .carousel-caption {
+        font-size: 18px;
+        /* Larger font size for desktop */
+        padding: 12px 25px;
+        /* Adjust padding for larger screens */
+      }
+    }
+
+    /* Animation for gradient background */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Container Styling */
     .container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
       padding: 20px;
-      background-color: white;
     }
 
+    /* Card Styling */
     .card {
       position: relative;
       background: #e8f9e9;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       text-align: center;
       padding: 20px;
     }
 
     .card img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      display: block;
-      margin: 0 auto 15px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
     }
 
     .card h2 {
@@ -81,24 +136,126 @@
       font-size: 1rem;
     }
 
-    .cta-button {
+    .card .cta-button {
       background-color: #4caf50;
       color: white;
       text-decoration: none;
       padding: 10px 20px;
-      display: inline-block;
       border-radius: 5px;
       margin-top: 10px;
+      display: inline-block;
     }
 
+    /* Card with Background */
+    .card[style="background: #d5efff;"] {
+      background: #d5efff;
+    }
+
+    /* Media Queries for Responsiveness */
+
+    /* Mobile Devices */
+    @media (max-width: 576px) {
+      .container {
+        grid-template-columns: 1fr;
+        /* Stack the cards on mobile */
+        padding: 15px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+
+      .card img {
+        max-width: 100%;
+        /* Ensure the image takes the full width on mobile */
+      }
+
+      .card h2 {
+        font-size: 1.2rem;
+        /* Adjust heading size */
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        /* Adjust paragraph font size */
+      }
+
+      .card .cta-button {
+        padding: 8px 16px;
+        /* Adjust button padding for mobile */
+      }
+    }
+
+    /* Tablet Devices */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr 1fr;
+        /* Two cards per row for tablets */
+        padding: 20px;
+      }
+
+      .card img {
+        max-width: 100%;
+        /* Ensure image fits well in card */
+      }
+
+      .card h2 {
+        font-size: 1.4rem;
+        /* Adjust heading size */
+      }
+
+      .card p {
+        font-size: 1rem;
+        /* Adjust paragraph font size */
+      }
+
+      .card .cta-button {
+        padding: 10px 20px;
+        /* Adjust button padding */
+      }
+    }
+
+    /* Large Screen (Desktop) */
+    @media (min-width: 992px) {
+      .container {
+        grid-template-columns: 1fr 1fr;
+        /* Two cards per row on larger screens */
+        padding: 40px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .card img {
+        max-width: 100%;
+      }
+
+      .card h2 {
+        font-size: 1.6rem;
+        /* Larger heading for desktop */
+      }
+
+      .card p {
+        font-size: 1.1rem;
+        /* Larger paragraph font size */
+      }
+
+      .card .cta-button {
+        padding: 12px 24px;
+        /* Larger button for desktop */
+      }
+    }
+
+    /* Container styling */
     .container {
       background-color: #eeeda3;
       box-shadow: none;
     }
 
+    /* Feature card styling */
     .feature-card {
       background-color: #6b7144;
-      /* border: 1px solid #ddd;  */
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       padding: 20px;
@@ -133,11 +290,12 @@
       color: #666;
     }
 
-
+    /* Background light */
     .bg-light {
       background-color: rgb(83, 83, 187);
     }
 
+    /* Heading styles */
     h1 {
       color: rgb(180, 16, 16);
       font-size: 2rem;
@@ -153,6 +311,7 @@
       margin-top: 10px;
     }
 
+    /* Container and padding */
     .container-fluid {
       padding-left: 15px;
       padding-right: 15px;
@@ -171,7 +330,7 @@
       padding-bottom: 3rem;
     }
 
-
+    /* Row layout */
     .row {
       display: flex;
       justify-content: space-between;
@@ -179,6 +338,7 @@
       flex-wrap: wrap;
     }
 
+    /* Column styling */
     .col-md-4 {
       flex: 1;
       text-align: center;
@@ -194,10 +354,143 @@
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
     }
 
+    /* Image styling */
     img.img-fluid {
       width: 100%;
       max-width: 170px;
       margin-bottom: 15px;
+    }
+
+    /* Media Query for Mobile devices */
+    @media (max-width: 576px) {
+      .container {
+        padding: 15px;
+        /* Adjust padding for small screens */
+      }
+
+      .feature-card {
+        padding: 15px;
+        /* Reduce padding on smaller screens */
+      }
+
+      .feature-card img {
+        max-width: 150px;
+        /* Smaller image size for mobile */
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        /* Adjust h1 size for small screens */
+      }
+
+      h5 {
+        font-size: 1rem;
+        /* Adjust h5 size for small screens */
+      }
+
+      .col-md-4 {
+        flex: 1 1 100%;
+        /* Stack the cards on small screens */
+        margin-bottom: 15px;
+      }
+
+      img.img-fluid {
+        max-width: 130px;
+        /* Reduce image size on mobile */
+      }
+    }
+
+    .product-link {
+      text-decoration: none;
+      /* This removes the default underline */
+    }
+
+    /* Optional: Card hover effect (if you want to enhance the hover effect) */
+    .product-link:hover {
+      text-decoration: none;
+      /* Ensures no underline appears on hover */
+    }
+
+    /* Media Query for Tablets */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+        /* Adjust padding for tablets */
+      }
+
+      .feature-card {
+        padding: 18px;
+        /* Adjust padding for tablets */
+      }
+
+      .feature-card img {
+        max-width: 180px;
+        /* Adjust image size for tablets */
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        /* Adjust h1 size for tablets */
+      }
+
+      h5 {
+        font-size: 1.1rem;
+        /* Adjust h5 size for tablets */
+      }
+
+      .col-md-4 {
+        flex: 1 1 48%;
+        /* 2 cards per row for tablets */
+        margin-bottom: 20px;
+      }
+
+      img.img-fluid {
+        max-width: 150px;
+        /* Adjust image size for tablets */
+      }
+    }
+
+    /* Media Query for Desktop (Large screens) */
+    @media (min-width: 992px) {
+      .row {
+        justify-content: space-evenly;
+        /* Evenly space out items on larger screens */
+      }
+
+      .col-md-4 {
+        flex: 1 1 30%;
+        /* 3 cards per row on large screens */
+      }
+
+      .feature-card {
+        padding: 20px;
+        /* Standard padding for larger screens */
+      }
+
+      .feature-card img {
+        max-width: 200px;
+        /* Standard image size for larger screens */
+      }
+
+      h1 {
+        font-size: 2rem;
+        /* Standard h1 size for larger screens */
+      }
+
+      h5 {
+        font-size: 1.2rem;
+        /* Standard h5 size for larger screens */
+      }
+
+      .col-md-4:hover {
+        transform: translateY(-10px);
+        /* Ensure hover effect is preserved */
+      }
+
+      img.img-fluid {
+        max-width: 170px;
+        /* Standard image size for larger screens */
+      }
     }
 
 
@@ -323,9 +616,9 @@
               aria-expanded="false">Category</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <!-- <li><a class="dropdown-item" href="categories">Categories</a></li> -->
-              <li><a class="dropdown-item" href="../ride-on-vehicles/{{category.name}}">Ride On Vehicles</a></li>
-              <li><a class="dropdown-item" href="../dolls/{{category.name}}">Dolls</a></li>
-              <li><a class="dropdown-item" href="../buildings">Buildings</a></li>
+              <li><a class="dropdown-item" href="{% url 'category_view' category_id=1 %}">Ride On Vehicles</a></li>
+              <li><a class="dropdown-item" href="{% url 'category_view' category_id=3 %}">Dolls</a></li>
+              <li><a class="dropdown-item" href="{% url 'category_view' category_id=2 %}">Buildings</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -396,11 +689,11 @@
     <!-- <a href="" class="cta-button" style="background-color: #c02a2a;">Find A Gift</a> -->
   </div>
 
-  <div class="container">
+  <div class="container1">
     <div class="row">
       {% for pro in Product %}
       <div class="col-lg-4">
-        <a href=" product_view/{{pro.pk}}">
+        <a href="product_view/{{pro.pk}}" class="product-link">
           <div class="card" style="width:400px">
             <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 400px;">
             <div class="card-body">
@@ -414,6 +707,7 @@
       {% endfor %}
     </div>
   </div>
+
   <footer class="footer">
     <div class="footer-container">
       <!-- Information Section -->
