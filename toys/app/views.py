@@ -239,6 +239,7 @@ def view_cart(req):
 
     cart=Cart.objects.filter(user=req.user,is_active=True)
     cart_total=sum(item.product.offer_price*item.qty for item in cart)
+   
 
     return render(req,'user/cart.html',{'cart':cart, 'cart_total':cart_total})
 
@@ -264,7 +265,7 @@ def pro_buy(req,pid):
     price=product.offer_price
     buy=Buy.objects.create(product=product,user=user,qty=qty,price=price)
     buy.save()
-    return redirect(bookings)
+    return redirect(pro_buy)
 
 
 
@@ -273,3 +274,7 @@ def bookings(req):
     buy=Buy.objects.filter(user=user)[::-1]
     return render(req,'user/bookings.html',{'bookings':buy})
 
+
+def buyall(request, address_id):
+    address = get_object_or_404(Address, id=address_id)
+    return render(request, 'user/buyall.html', {'address': address})

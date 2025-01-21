@@ -29,7 +29,7 @@ urlpatterns = [
     path('qty_in/<cid>',views.qty_in),
     path('qty_dec/<cid>',views.qty_dec),
     path('category_view/<int:category_id>/', views.category_view, name='category_view'),
-    
+    path('buyall/<int:address_id>/', views.buyall, name='buyall'),
 
 ]
 

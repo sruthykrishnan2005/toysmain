@@ -35,4 +35,12 @@ class Buy(models.Model):
     date=models.DateField(auto_now_add=True)
 
 
+class Address(models.Model):
+    name = models.CharField(max_length=255)  
+    city = models.CharField(max_length=100)  
+    pin_code = models.CharField(max_length=20) 
+
+
+    def __str__(self):
+        return f"{self.name}, {self.city}, {self.pin_code}"
 
